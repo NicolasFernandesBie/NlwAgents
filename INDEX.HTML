@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+        rel="stylesheet">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.CSS">
+</head>
+
+<body>
+    <header>
+        <IMG src="./assets/logo.png" alt="logo_Nlw_Esports"> </IMG>
+    </header>
+
+    <main>
+        <section>
+            <div>
+                <h2 class="title">Assistente de Meta</h2>
+                <p>Pergunte sobre estrategias dicas para suas builds</p>
+                <form id="form">
+                    <input id="apiKeyInput" type="password" placeholder="Informe a API KEY do Gemini" required>
+                    <select id="gameSelect">
+                        <option value=""> selecione um jogo</option>
+                        <option value=""> Elden Ring</option>
+                        <option value=""> Dark souls</option>
+                        <option value=""> Pokemon emereald</option>
+
+                        <input id="questionInput" type="text" placeholder="Ex melhor build para... melhor tipo..."
+                            required>
+
+                        <button id="askButton">
+                            Perguntar
+                        </button>
+                    </select>
+                </form>
+                <div id="aiResponse">
+                    <div class="response-content">
+
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+    </main>
+
+    <script src="./APP.JS"></script>
+
+</body>
+
+</html>
