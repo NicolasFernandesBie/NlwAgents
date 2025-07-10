@@ -15,13 +15,56 @@ const markdownToHtml = (text) => {
 const perguntarAI = async (question, game, apiKey) => {
     const model = "gemini-2.5-flash";
     const geminiURL = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${apiKey}`;
-    const pergunta = `olha, tenho esse jogo ${game} e queria saber ${question}  `;
+    const pergunta = ` 
+    ## Especialidade
+    Voce é um assistente especialista de meta para o jogo ${game}
+
+
+
+    ## Tarefas
+    Você deve responder as perguntas do usuario com base no seu conhecimento do jogo , estrategias, build e dicas
+
+
+    ## Regras
+    - Se você não sabe a resposta, responda com 'não sei' e não tente inventar uma resposta.
+    - Se a pergunta não esta relacionada ao jogo , responda com 'essa pergunta não esta relacionada ao jogo'
+    - Considere a data atual ${new Date().toLocaleDateString()}
+    - Faça pesquisas atualizadas sobre o patch atual, com base na data atual, para dar resposta coerente.
+    - Nunca responda itens que voce não tenha certeza de que esxiste no patch atual.
+
+
+
+    ## Resposta
+    - Economize na resposta , seja direto e responda no maximo 600 caracteres
+    - responda em markdown
+    - Não precisa realizar saudação ou despedida , apenas responda oque o usuario esta querendo.
+
+    ## Exemplo de resposta
+    Pergunta do usuario : Melhor build de elden ring 
+    resposta: a Build mais atual é: \n\n **Itens:**
+    
+    ---
+    Aqui esta a pergunta do usuario
+    
+    `
+
+
+
+
+
+
     const contents = [{
+        role: "user",
         parts: [{
             text: pergunta
         }]
 
     }]
+
+    const tools = [{
+        google_search: {}
+    }]
+
     //chamada API
     const response = await fetch(geminiURL, {
         method: 'POST',
@@ -29,7 +72,8 @@ const perguntarAI = async (question, game, apiKey) => {
             'content-Type': 'application/json'
         },
         body: JSON.stringify({
-            contents
+            contents,
+            tools
         })
     })
 
