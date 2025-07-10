@@ -25,6 +25,9 @@
   - transferencia
 - Protocol
   - Conjunto de regras
+- Verbos HTTP : get, post , patch/put , Delete
+- Headers (Cabecalhos) : Instrucoes / Informacoes extras para cada chamado 
+
 
 # Url
 
@@ -57,8 +60,7 @@ rocketseat.com.br (DOMINIO)
   - estilo
 - sheet
   - folha
-
-De um arquivo vida 
+- De um arquivo vida 
 
 
 
@@ -92,5 +94,13 @@ De um arquivo vida
 - Document
 - Onject
 - Model
+
+# API
+- Application
+- Programming
+- Interface
+- JSON : JavaScript Object Notation
+
+
 
 
